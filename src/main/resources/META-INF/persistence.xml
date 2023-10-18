@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="miUnidadDePersistencia">
+        <class>com.aloide.urlshort.db.entity.EUrl</class> <!-- Reemplaza con tus clases de entidad -->
+
+        <properties>
+            <!-- Configuración de la base de datos -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:src/main/resources/url_short.db" />
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+
+            <!-- Dialecto SQLite -->
+            <property name="javax.persistence.database-product-name" value="SQLite" />
+            <property name="javax.persistence.schema-generation.database.action" value="update" />
+
+            <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLiteDialect" />
+            <property name="hibernate.show_sql" value="true" />
+
+            <!-- Configuración de la conexión -->
+            <property name="hibernate.connection.isolation" value="2" />
+            <property name="hibernate.connection.autocommit" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
